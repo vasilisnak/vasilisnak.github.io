@@ -8,30 +8,18 @@
 
   <style>
     :root {
-      --bg: #f7f9fc;
-      --card: #ffffff;
-      --text: #243042;
-      --muted: #5f6b7a;
-      --accent: #1e66d0;
-      --accent-hover: #144ea8;
-      --border: #e6ebf2;
-      --shadow: 0 10px 30px rgba(27, 39, 51, 0.06);
-      --shadow-strong: 0 14px 36px rgba(27, 39, 51, 0.09);
-      --radius: 18px;
+      --bg: #faf7f2;
+      --card: #fffdf9;
+      --text: #2c2520;
+      --muted: #6e6359;
+      --accent: #9c4a27;
+      --accent-hover: #7a3619;
+      --border: #ebe3d7;
+      --pill-bg: #f3ede4;
+      --pill-text: #594637;
+      --shadow: 0 8px 26px rgba(44, 37, 32, 0.045);
+      --radius: 16px;
     }
-
-    .ai-label {
-      display: inline-block;
-      margin-left: 8px;
-      padding: 2px 10px;
-      border-radius: 999px;
-      background: #eef4ff;
-      color: #2457b8;
-      font-size: 0.84rem;
-      font-weight: 600;
-      vertical-align: middle;
-    }
-
 
     * { box-sizing: border-box; }
 
@@ -44,47 +32,51 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 17.5px;
+      line-height: 1.72;
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.15s ease;
     }
 
     a:hover {
       color: var(--accent-hover);
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .container {
-      max-width: 980px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 28px 20px 60px;
+      padding: 28px 20px 64px;
     }
 
+    /* Warm frosted top navigation */
     .topnav {
       position: sticky;
       top: 12px;
       z-index: 20;
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 18px;
       align-items: center;
-      padding: 14px 18px;
+      padding: 13px 22px;
       margin-bottom: 24px;
-      background: rgba(247, 249, 252, 0.88);
+      background: rgba(255, 253, 249, 0.88);
       backdrop-filter: blur(10px);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: var(--shadow);
     }
 
     .topnav a {
       color: var(--muted);
       font-weight: 600;
-      font-size: 0.97rem;
+      font-size: 0.94rem;
+      letter-spacing: 0.01em;
     }
 
     .topnav a:hover {
@@ -99,104 +91,137 @@
       background: var(--card);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .hero:hover,
-    .section:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-strong);
-    }
-
-    .hero::before,
-    .section::before {
+    /* Single warm accent bar only on the Hero card */
+    .hero::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(90deg, var(--accent), #7aa7f7);
+      background: linear-gradient(90deg, #9c4a27, #c98a4b);
     }
 
     .hero {
-      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
-      border-radius: 24px;
-      padding: 36px 32px;
-      margin-bottom: 28px;
+      background: linear-gradient(180deg, #fffdf9 0%, #fbf7f0 100%);
+      border-radius: 20px;
+      padding: 38px 36px;
+      margin-bottom: 26px;
     }
 
     .hero h1 {
       margin: 0 0 6px;
-      font-size: 2.4rem;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: 2.35rem;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: #221c18;
     }
 
     .subtitle {
       color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 18px;
+      font-size: 1.04rem;
+      margin-bottom: 20px;
     }
 
     .hero p {
       margin: 0 0 14px;
-      max-width: 780px;
+      max-width: 760px;
+    }
+
+    .ai-label {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 9px;
+      border-radius: 999px;
+      background: var(--pill-bg);
+      border: 1px solid #e2d6c5;
+      color: var(--pill-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      vertical-align: middle;
     }
 
     .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 10px;
+      margin-top: 20px;
     }
 
     .links a {
       display: inline-block;
-      padding: 8px 14px;
+      padding: 7px 16px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: white;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      background: #fffdf9;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.92rem;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
     }
 
     .links a:hover {
+      background: var(--pill-bg);
+      border-color: #d6c8b6;
+      color: var(--accent);
       transform: translateY(-1px);
-      border-color: #cfd9e8;
-      box-shadow: 0 8px 20px rgba(27, 39, 51, 0.07);
       text-decoration: none;
     }
 
     .section {
       border-radius: var(--radius);
-      padding: 28px 28px 24px;
+      padding: 30px 34px 26px;
       margin-bottom: 24px;
     }
 
     .section h2 {
       margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.45rem;
-      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.48rem;
+      font-weight: 700;
+      color: #221c18;
     }
 
     .section-intro {
-      margin: 0 0 18px;
+      margin: 0 0 20px;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
     }
 
-    .teaching-list,
+    /* 2-column grid for Teaching on desktop */
+    .teaching-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 24px;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .teaching-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Paper lists with subtle warm dividers */
     .paper-list {
       margin: 0;
       padding-left: 22px;
     }
 
-    .teaching-list li,
     .paper-list li {
-      margin-bottom: 16px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #f2ece2;
+    }
+
+    .paper-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
 
     .paper-title {
@@ -205,41 +230,84 @@
       line-height: 1.45;
     }
 
+    a.paper-title:hover {
+      color: var(--accent);
+    }
+
     .paper-meta {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
     .venue {
       display: inline-block;
       margin-left: 8px;
-      padding: 2px 10px;
+      padding: 1px 10px;
       border-radius: 999px;
-      background: #eef4ff;
-      color: #2457b8;
-      font-size: 0.84rem;
+      background: var(--pill-bg);
+      color: var(--pill-text);
+      font-size: 0.82rem;
       font-weight: 600;
       vertical-align: middle;
     }
 
+    /* Earthy brown award badge */
+    .award-wrap {
+      margin: 7px 0 5px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #3B2E26;
+      background-color: #F7F3EE;
+      border: 1px solid #DFD5C9;
+      padding: 3px 11px;
+      border-radius: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.83rem;
+      letter-spacing: 0.01em;
+    }
+
+    .award-badge .star {
+      color: #8C6A54;
+      font-size: 0.8em;
+    }
+
+    .award-badge em {
+      color: #5C4435;
+      font-style: italic;
+    }
+
     .year-heading {
-      margin: 28px 0 10px;
-      font-size: 1.05rem;
-      color: var(--muted);
+      margin: 28px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+      color: var(--accent);
       letter-spacing: 0.02em;
       font-weight: 700;
     }
 
+    .year-heading:first-of-type {
+      margin-top: 12px;
+    }
+
     footer {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       text-align: center;
-      margin-top: 30px;
+      margin-top: 34px;
     }
 
     @media (max-width: 700px) {
       body {
-        font-size: 17px;
+        font-size: 16.5px;
       }
 
       .hero h1 {
@@ -248,12 +316,16 @@
 
       .hero,
       .section {
-        padding: 22px 18px;
+        padding: 24px 20px;
+      }
+
+      .teaching-list {
+        grid-template-columns: 1fr;
       }
 
       .topnav {
         top: 8px;
-        padding: 12px 14px;
+        padding: 11px 15px;
       }
     }
   </style>
@@ -289,7 +361,7 @@
       </p>
 
       <p>
-        Papers the results of which are produced essentially by AI, will be marked as <span class="ai-label">AI</span>. 
+        Papers the results of which are produced essentially by AI, will be marked as <span class="ai-label">AI</span>.
       </p>
 
       <p><strong>Email:</strong> vasilisnak AT di DOT uoa DOT gr</p>
@@ -311,150 +383,136 @@
       </ul>
     </section>
 
-    
- <section class="section" id="selected-papers">
-  <h2>Selected Papers</h2>
-  <p class="section-intro">A selection of representative papers.</p>
+    <section class="section" id="selected-papers">
+      <h2>Selected Papers</h2>
+      <p class="section-intro">A selection of representative papers.</p>
 
-  <ol class="paper-list">
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/2605.30564" target="_blank" rel="noopener noreferrer">
-        Listing Even Cycles Faster than the Submodular-Width Barrier
-      </a>
-      <span class="venue">PODS 2027</span><br>
-      <span class="paper-meta">Vasileios Nakos, Hung Q. Ngo, Andreas Panayi</span>
-    </li>
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/2510.20361" target="_blank" rel="noopener noreferrer">
-        ℓ<sub>2</sub>/ℓ<sub>2</sub> Sparse Recovery via Weighted Hypergraph Peeling
-      </a>
-      <span class="venue">FOCS 2025</span><br>
-      <span class="paper-meta">Nick Fischer, Vasileios Nakos</span>
-    </li>
+      <ol class="paper-list">
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2605.30564" target="_blank" rel="noopener noreferrer">
+            Listing Even Cycles Faster than the Submodular-Width Barrier
+          </a>
+          <span class="venue">PODS 2027</span><br>
+          <span class="paper-meta">Vasileios Nakos, Hung Q. Ngo, Andreas Panayi</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2510.20361" target="_blank" rel="noopener noreferrer">
+            ℓ<sub>2</sub>/ℓ<sub>2</sub> Sparse Recovery via Weighted Hypergraph Peeling
+          </a>
+          <span class="venue">FOCS 2025</span><br>
+          <span class="paper-meta">Nick Fischer, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2410.21942" target="_blank" rel="noopener noreferrer">
+            Beating Bellman's Algorithm for Subset Sum
+          </a>
+          <span class="venue">SODA 2025</span><br>
+          <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2107.07347" target="_blank" rel="noopener noreferrer">
+            Traversing the FFT Computation Tree for Dimension-Independent Sparse Fourier Transforms
+          </a>
+          <span class="venue">SODA 2023</span><br>
+          <span class="paper-meta">Karl Bringmann, Michael Kapralov, Mikhail Makarov, Vasileios Nakos, Amir Yagudin, Amir Zandieh</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/pdf/2202.08066.pdf" target="_blank" rel="noopener noreferrer">
+            Almost-Optimal Sublinear-Time Edit Distance in the Low Distance Regime
+          </a>
+          <span class="venue">STOC 2022</span><br>
+          <span class="paper-meta">Karl Bringmann, Alejandro Cassis, Nick Fischer, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2107.07625" target="_blank" rel="noopener noreferrer">
+            Deterministic and Las Vegas Algorithms for Sparse Nonnegative Convolution
+          </a>
+          <span class="venue">SODA 2022</span><br>
+          <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2105.05984" target="_blank" rel="noopener noreferrer">
+            Sparse Nonnegative Convolution is Equivalent to Dense Nonnegative Convolution
+          </a>
+          <span class="venue">STOC 2021</span><br>
+          <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/1912.12529" target="_blank" rel="noopener noreferrer">
+            A Fine-Grained Perspective on Approximating Subset Sum and Partition
+          </a>
+          <span class="venue">SODA 2021</span><br>
+          <span class="paper-meta">Karl Bringmann, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2006.08420" target="_blank" rel="noopener noreferrer">
+            Combinatorial Group Testing and Sparse Recovery Schemes with Near-Optimal Decoding Time
+          </a>
+          <span class="venue">FOCS 2020</span><br>
+          <span class="paper-meta">Mahdi Cheraghchi, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://dl.acm.org/doi/abs/10.1145/3357713.3384308" target="_blank" rel="noopener noreferrer">
+            Top-k Convolution and the Quest for Near-Linear Output-Sensitive Subset Sum
+          </a>
+          <span class="venue">STOC 2020</span><br>
+          <span class="paper-meta">Karl Bringmann, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/1909.11123" target="_blank" rel="noopener noreferrer">
+            (Nearly) Sample-Optimal Sparse Fourier Transform in Any Dimension; RIPless and Filterless
+          </a>
+          <span class="venue">FOCS 2019</span><br>
+          <span class="paper-meta">Vasileios Nakos, Zhao Song, Zhengyu Wang</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/1903.02742" target="_blank" rel="noopener noreferrer">
+            Stronger L2/L2 Compressed Sensing; Without Iterating
+          </a>
+          <span class="venue">STOC 2019</span><br>
+          <span class="paper-meta">Vasileios Nakos, Zhao Song</span>
+        </li>
+      </ol>
+    </section>
 
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/2410.21942" target="_blank" rel="noopener noreferrer">
-        Beating Bellman's Algorithm for Subset Sum
-      </a>
-      <span class="venue">SODA 2025</span><br>
-      <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/2107.07347" target="_blank" rel="noopener noreferrer">
-        Traversing the FFT Computation Tree for Dimension-Independent Sparse Fourier Transforms
-      </a>
-      <span class="venue">SODA 2023</span><br>
-      <span class="paper-meta">Karl Bringmann, Michael Kapralov, Mikhail Makarov, Vasileios Nakos, Amir Yagudin, Amir Zandieh</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/pdf/2202.08066.pdf" target="_blank" rel="noopener noreferrer">
-        Almost-Optimal Sublinear-Time Edit Distance in the Low Distance Regime
-      </a>
-      <span class="venue">STOC 2022</span><br>
-      <span class="paper-meta">Karl Bringmann, Alejandro Cassis, Nick Fischer, Vasileios Nakos</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/2107.07625" target="_blank" rel="noopener noreferrer">
-        Deterministic and Las Vegas Algorithms for Sparse Nonnegative Convolution
-      </a>
-      <span class="venue">SODA 2022</span><br>
-      <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/2105.05984" target="_blank" rel="noopener noreferrer">
-        Sparse Nonnegative Convolution is Equivalent to Dense Nonnegative Convolution
-      </a>
-      <span class="venue">STOC 2021</span><br>
-      <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/1912.12529" target="_blank" rel="noopener noreferrer">
-        A Fine-Grained Perspective on Approximating Subset Sum and Partition
-      </a>
-      <span class="venue">SODA 2021</span><br>
-      <span class="paper-meta">Karl Bringmann, Vasileios Nakos</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/2006.08420" target="_blank" rel="noopener noreferrer">
-        Combinatorial Group Testing and Sparse Recovery Schemes with Near-Optimal Decoding Time
-      </a>
-      <span class="venue">FOCS 2020</span><br>
-      <span class="paper-meta">Mahdi Cheraghchi, Vasileios Nakos</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://dl.acm.org/doi/abs/10.1145/3357713.3384308" target="_blank" rel="noopener noreferrer">
-        Top-k Convolution and the Quest for Near-Linear Output-Sensitive Subset Sum
-      </a>
-      <span class="venue">STOC 2020</span><br>
-      <span class="paper-meta">Karl Bringmann, Vasileios Nakos</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/1909.11123" target="_blank" rel="noopener noreferrer">
-        (Nearly) Sample-Optimal Sparse Fourier Transform in Any Dimension; RIPless and Filterless
-      </a>
-      <span class="venue">FOCS 2019</span><br>
-      <span class="paper-meta">Vasileios Nakos, Zhao Song, Zhengyu Wang</span>
-    </li>
-
-    <li>
-      <a class="paper-title" href="https://arxiv.org/abs/1903.02742" target="_blank" rel="noopener noreferrer">
-        Stronger L2/L2 Compressed Sensing; Without Iterating
-      </a>
-      <span class="venue">STOC 2019</span><br>
-      <span class="paper-meta">Vasileios Nakos, Zhao Song</span>
-    </li>
-  </ol>
-</section>
     <section class="section" id="research-papers">
       <h2>Research Papers</h2>
       <p class="section-intro">Author names in alphabetical order, except where marked otherwise.</p>
 
-        <h3 class="year-heading">2027</h3>
-          <ol class="paper-list">
+      <h3 class="year-heading">2027</h3>
+      <ol class="paper-list">
         <li>
-            <a class="paper-title" href="https://arxiv.org/abs/2605.30564 "target="_blank" rel="noopener noreferrer">
-              <span class="paper-title"> Listing Even Cycles Faster than the Submodular-Width Barrier</span><br>
-            </a>
-              <span class="venue">PODS 2027</span><br>
-              <span class="paper-meta">Vasileios Nakos, Hung Q. Ngo, Andreas Panayi</span>
-          </li>      
-          </ol>
+          <a class="paper-title" href="https://arxiv.org/abs/2605.30564" target="_blank" rel="noopener noreferrer">
+            Listing Even Cycles Faster than the Submodular-Width Barrier
+          </a>
+          <span class="venue">PODS 2027</span><br>
+          <span class="paper-meta">Vasileios Nakos, Hung Q. Ngo, Andreas Panayi</span>
+        </li>
+      </ol>
 
-        <h3 class="year-heading">2026</h3>
-          <ol class="paper-list">
-       <li>
+      <h3 class="year-heading">2026</h3>
+      <ol class="paper-list">
+        <li>
+          <a class="paper-title" href="https://arxiv.org/html/2611.05725v1" target="_blank" rel="noopener noreferrer">
+            Faster Approximate Text-to-Pattern Hamming Distances via Near-Optimal Sumset Estimation
+          </a><br>
+          <span class="paper-meta">Nick Fischer, Yael Kirkpatrick, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/html/2610.16289v1" target="_blank" rel="noopener noreferrer">
+            Fast Quantized JL transforms
+          </a><br>
+          <span class="paper-meta">Angelos Korakitis, Vasileios Nakos</span>
+        </li>
+        <li>
+          <a class="paper-title" href="https://arxiv.org/abs/2607.01427" target="_blank" rel="noopener noreferrer">
+            Robustifying Sparse Matrix Multiplication
+          </a>
+          <span class="venue">ESA 2026</span><br>
+          <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
+        </li>
+      </ol>
 
-            <a class="paper-title" href="https://arxiv.org/html/2611.05725v1 "target="_blank" rel="noopener noreferrer">
-              <span class="paper-title"> Faster Approximate Text-to-Pattern Hamming Distances via Near-Optimal Sumset Estimation</span><br>
-            </a>
-                <span class="paper-meta">Nick Fischer, Yael Kirkpatrick, Vasileios Nakos </span>
-             </li>
-
-          <li>
-            <a class="paper-title" href="https://arxiv.org/html/2610.16289v1 "target="_blank" rel="noopener noreferrer">
-              <span class="paper-title"> Fast Quantized JL transforms</span><br>
-            </a>
-              <span class="paper-meta">Angelos Korakitis, Vasileios Nakos </span>
-          </li>  
-
-          <li>
-            <a class="paper-title" href="https://arxiv.org/abs/2607.01427" target="_blank" rel="noopener noreferrer">
-              Robustifying Sparse Matrix Multiplication
-            </a>
-            <span class="venue">ESA 2026</span><br>
-            <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
-          </li>
-          </ol>
-
-      
       <h3 class="year-heading">2025</h3>
       <ol class="paper-list">
         <li>
@@ -464,16 +522,13 @@
           <span class="venue">FOCS 2025</span><br>
           <span class="paper-meta">Nick Fischer, Vasileios Nakos</span>
         </li>
-
         <li>
-          <a class="paper-title" href="https://arxiv.org/abs/2503.03290 "target="_blank" rel="noopener noreferrer">
-          <span class="paper-title">Information Theory Strikes Back: New Development in the Theory of Cardinality Estimation</span>
+          <a class="paper-title" href="https://arxiv.org/abs/2503.03290" target="_blank" rel="noopener noreferrer">
+            Information Theory Strikes Back: New Development in the Theory of Cardinality Estimation
           </a>
-          <span class="venue">SIGMOD Record 2025
-            </span><br>
+          <span class="venue">SIGMOD Record 2025</span><br>
           <span class="paper-meta">Mahmoud Abo Khamis, Vasileios Nakos, Dan Olteanu, Dan Suciu</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/2410.21942" target="_blank" rel="noopener noreferrer">
             Beating Bellman's Algorithm for Subset Sum
@@ -481,7 +536,6 @@
           <span class="venue">SODA 2025</span><br>
           <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://www.arxiv.org/abs/2408.13540" target="_blank" rel="noopener noreferrer">
             Targeted Least Cardinality Candidate Key for Relational Databases
@@ -497,26 +551,13 @@
           <a class="paper-title" href="https://arxiv.org/abs/2306.14075" target="_blank" rel="noopener noreferrer">
             Join Size Bounds using Lp-Norms on Degree Sequences
           </a>
-          <span class="venue"> PODS 2024
-          </span><br>
-    <div style="margin: 10px 0; display: flex; flex-wrap: wrap; gap: 8px;">    
-      <span style="
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: #4A3B22;
-        background-color: #FAF6EC;
-        border: 1px solid #E5D7B8;
-        padding: 4px 11px;
-        border-radius: 5px;
-        font-family: Georgia, 'Times New Roman', serif;
-        font-size: 0.84rem;
-        letter-spacing: 0.01em;
-      ">
-        <span style="color: #B88B32; font-size: 0.8em;">✦</span>
-        <span>ACM SIGMOD <em style="color: ##634610;">Research Highlight</em></span>
-      </span>
-    </div>
+          <span class="venue">PODS 2024</span>
+          <div class="award-wrap">
+            <span class="award-badge">
+              <span class="star">✦</span>
+              <span>ACM SIGMOD <em>Research Highlight</em></span>
+            </span>
+          </div>
           <span class="paper-meta">Mahmoud Abo Khamis, Vasileios Nakos, Dan Olteanu, Dan Suciu</span>
         </li>
       </ol>
@@ -539,7 +580,6 @@
           <span class="venue">ISIT 2022</span><br>
           <span class="paper-meta">Baris Can Esmer, Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/2204.14137" target="_blank" rel="noopener noreferrer">
             Improved Sublinear-Time Edit Distance for Preprocessed Strings
@@ -547,7 +587,6 @@
           <span class="venue">ICALP 2022</span><br>
           <span class="paper-meta">Karl Bringmann, Alejandro Cassis, Nick Fischer, Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/pdf/2202.08066.pdf" target="_blank" rel="noopener noreferrer">
             Almost-Optimal Sublinear-Time Edit Distance in the Low Distance Regime
@@ -555,7 +594,6 @@
           <span class="venue">STOC 2022</span><br>
           <span class="paper-meta">Karl Bringmann, Alejandro Cassis, Nick Fischer, Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/2107.07625" target="_blank" rel="noopener noreferrer">
             Deterministic and Las Vegas Algorithms for Sparse Nonnegative Convolution
@@ -574,13 +612,11 @@
           <span class="venue">ICALP 2021</span><br>
           <span class="paper-meta">Karl Bringmann, Vasileios Nakos</span>
         </li>
-
         <li>
           <span class="paper-title">On the Approximability of Multistage Min-Sum Set Cover</span>
           <span class="venue">ICALP 2021</span><br>
           <span class="paper-meta">Dimitris Fotakis, Panagiotis Kostopanagiotis, Vasileios Nakos, Georgios Piliouras, Stratis Skoulakis</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/2105.05984" target="_blank" rel="noopener noreferrer">
             Sparse Nonnegative Convolution is Equivalent to Dense Nonnegative Convolution
@@ -588,7 +624,6 @@
           <span class="venue">STOC 2021</span><br>
           <span class="paper-meta">Karl Bringmann, Nick Fischer, Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/2008.10577" target="_blank" rel="noopener noreferrer">
             Fast and Simple Modular Subset Sum
@@ -602,7 +637,6 @@
             <a href="https://arxiv.org/abs/2008.08417" target="_blank" rel="noopener noreferrer">Cardinal &amp; Iacono</a>)
           </span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1912.12529" target="_blank" rel="noopener noreferrer">
             A Fine-Grained Perspective on Approximating Subset Sum and Partition
@@ -621,7 +655,6 @@
           <span class="venue">FOCS 2020</span><br>
           <span class="paper-meta">Mahdi Cheraghchi, Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1903.00995" target="_blank" rel="noopener noreferrer">
             Deterministic Sparse Fourier Transform with an L∞ Guarantee
@@ -629,7 +662,6 @@
           <span class="venue">ICALP 2020</span><br>
           <span class="paper-meta">Yi Li, Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1901.09355" target="_blank" rel="noopener noreferrer">
             Nearly Optimal Sparse Polynomial Multiplication
@@ -637,7 +669,6 @@
           <span class="venue">IEEE TIT 2020</span><br>
           <span class="paper-meta">Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1709.02917" target="_blank" rel="noopener noreferrer">
             Sublinear-Time Algorithms for Compressive Phase Retrieval
@@ -645,7 +676,6 @@
           <span class="venue">IEEE TIT 2020</span><br>
           <span class="paper-meta">Yi Li, Vasileios Nakos (Preliminary version in ISIT 2018)</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1709.07308" target="_blank" rel="noopener noreferrer">
             Predicting Positive and Negative Links with Noisy Queries: Theory &amp; Practice
@@ -655,7 +685,6 @@
             Charalampos Tsourakakis, Michael Mitzenmacher, Kasper Green Larsen, Jarosław Błasiok, Ben Lawson, Preetum Nakkiran, Vasileios Nakos
           </span>
         </li>
-
         <li>
           <a class="paper-title" href="https://dl.acm.org/doi/abs/10.1145/3357713.3384308" target="_blank" rel="noopener noreferrer">
             Top-k Convolution and the Quest for Near-Linear Output-Sensitive Subset Sum
@@ -674,7 +703,6 @@
           <span class="venue">FOCS 2019</span><br>
           <span class="paper-meta">Vasileios Nakos, Zhao Song, Zhengyu Wang</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1903.02742" target="_blank" rel="noopener noreferrer">
             Stronger L2/L2 Compressed Sensing; Without Iterating
@@ -682,7 +710,6 @@
           <span class="venue">STOC 2019</span><br>
           <span class="paper-meta">Vasileios Nakos, Zhao Song</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1711.04049" target="_blank" rel="noopener noreferrer">
             One-Bit ExpanderSketch for One-Bit Compressed Sensing
@@ -701,7 +728,6 @@
           <span class="venue">ICALP 2018</span><br>
           <span class="paper-meta">Vasileios Nakos, Xiaofei Shi, David Woodruff, Hongyang Zhang</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1709.02919" target="_blank" rel="noopener noreferrer">
             On Low-Risk Heavy Hitters and Sparse Recovery Schemes
@@ -709,7 +735,6 @@
           <span class="venue">RANDOM/APPROX 2018</span><br>
           <span class="paper-meta">Yi Li, Vasileios Nakos, David Woodruff</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1712.01971" target="_blank" rel="noopener noreferrer">
             Deterministic Heavy Hitters with Sublinear Query Time
@@ -728,7 +753,6 @@
           <span class="venue">ISIT 2017</span><br>
           <span class="paper-meta">Vasileios Nakos</span>
         </li>
-
         <li>
           <a class="paper-title" href="https://arxiv.org/abs/1603.08585" target="_blank" rel="noopener noreferrer">
             On Fast Decoding of High-Dimensional Signals from One-Bit Measurements
@@ -745,8 +769,3 @@
   </div>
 </body>
 </html>
-
-
-
-
-
